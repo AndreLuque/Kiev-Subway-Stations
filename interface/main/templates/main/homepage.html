@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+    <head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      <meta name="author" content="Grayrids">
+      <title>Kiev Subway Stations</title>
+      <!--====== Favicon Icon ======-->
+      <link rel="shortcut icon" href="{% static 'images/main/logo1-icon.svg' %}">
+      <!-- CSS -->
+      <link rel="stylesheet" href="{% static 'css/main/homepage.css' %}">
+
+
+      <script src="https://kit.fontawesome.com/c66d59c3a5.js" crossorigin="anonymous"></script>
+
+    </head>
+    <body style="background: #eeebf6">
+    <center><div class="box" id="box">
+        <img src="{% static 'images/main/subway_background.jpg' %}" class="box-image">
+        <h1 class="title-box">Kiev <br> Subway <br>Stations</h1> 
+        <br>
+        <br>
+        <form method="POST">
+          {% csrf_token %}
+        <label class="select" for="slct">
+          <i class="fas fa-arrow-circle-down" style="color: #CBC3E3;"></i>
+          <select id="from" required="required" class="from" name="origin">
+            <option value="" disabled="disabled" selected="selected">Select Origin</option>
+            {% for name in names %} 
+            <option value="{{ name }}">{{ name }}</option>
+            {% endfor %}
+          </select>
+          <br>
+          <br>
+
+        <label class="select" for="slct">
+          <i class="fas fa-arrow-circle-down"  style="color: #CBC3E3;"></i>
+          <select id="to" required="required" class="to" name="to">
+            <option value="" disabled="disabled" selected="selected">Select Destination</option>
+            {% for name in names %} 
+            <option value="{{ name }}">{{ name }}</option>
+            {% endfor %}
+          </select>
+
+          <br>
+          <br>
+
+
+
+        <button type="submit" id="get-path" class="custom-btn btn-11" style="background-color: background-color: #E6E6FA;" onclick="loading();">Calculate Best Path</button>
+        </form>
+
+
+    <div></center>  
+
+    <section class="stage" id="cho">
+      <center><h5 class="loading"> LOADING... </h5></center>
+      <div class="sky">
+        <div class="cloud"></div>
+        <div class="cloud"></div>
+      </div>
+      <div class="train">
+        <div class="wagon"></div>
+        <div class="wagon"></div>
+        <div class="wagon"></div>
+        <div class="locomotive">
+          <div class="cabin"></div>
+          <div class="motor"></div>
+          <div class="chimney">
+            <div class="smoke"></div>
+          </div>
+          <div class="light"></div>
+        </div>
+      </div>
+    </section>
+
+    <script type="text/javascript">
+      document.getElementById('cho').style.display = 'none';
+
+      function loading() {
+        document.getElementById('box').style.display = 'none';
+        document.getElementById('cho').style.display = 'block';
+      } 
+    </script>
+    </body>
+</html>

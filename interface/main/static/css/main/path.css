@@ -1,0 +1,53 @@
+.vertical {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-left: 6px solid #fff;
+    height: 50px;
+    position:relative;
+    left: 50%;
+}
+
+.box {
+    position: relative;
+    margin-top: 80px;
+    width: 500px;
+    overflow: hidden;
+    background-color: white;
+    transition:  2s ease;
+    border-radius: 30px;
+    background-color: #6e5193;
+    overflow: hidden;
+}
+
+.box:hover {
+    transform: scale(1.03);
+}
+
+.title {
+    color: #eeebf6;
+    background-color: #4d3866;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.cost {
+    color: #eeebf6;
+}
+
+.stop {
+    padding-top:  15%;
+    color: #fff;
+}
+
+.stop-box {
+    transition: 0.5s ease;
+}
+
+.stop-box:hover {
+  transform: scale(1.1);
+}
+
+
+body {
+  background-color: #fff;
+}
