@@ -54,7 +54,8 @@ def homepage(request):
 			
 			return redirect('path/' + str_path[1:] + '/' + str(coste))
 	
-	context['names'] = nombres_linea1 + nombres_linea2 + nombres_linea3
+	names = sorted(nombres_linea1 + nombres_linea2 + nombres_linea3)
+	context['names'] = names
 	template = loader.get_template('main/homepage.html')
 	return HttpResponse(template.render(context, request))
 
