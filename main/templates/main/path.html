@@ -21,9 +21,10 @@
   <center>
   <div class="box">
     <h1 class="title">THE QUICKEST ROUTE <br> TO YOUR DESTINATION IS: </h1>
-    <div style="width: 300px;">
+    <div style="width: 400px;">
       <h3 class="cost">Distance: {{ distance }}m</h3>
       <h3 class="cost">Time: {{ time }}</h3>
+      <h3 class="advise">{{ advise }}</h3>
     </div>
 
     <div style="width: 100px; margin-top: -10px;">
@@ -41,7 +42,7 @@
 
     <div class="stops">
       {% for key, value in colors.items %}
-      <div id="div1" class="stop-box" style=" width: 100px; height: 50px; background: {{ value }}; position:relative; border-radius: 20px;">
+      <div id="div1" class="stop-box" style=" width: 120px; height: 50px; background: {{ value }}; position:relative; border-radius: 20px;">
         <h5 class="stop">{{ key }}</h5>
       </div>
       {% if forloop.counter != colors|length %}
