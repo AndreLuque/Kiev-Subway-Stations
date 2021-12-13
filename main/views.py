@@ -97,9 +97,9 @@ def showPath(request, strPath: str, cost: str):
     average_speed_of_subway = 600
     time_ = int(cost / average_speed_of_subway)
     if time_ >= 60:
-        time_ = str(math.floor(time_ / 60)) + 'h ' + str(time_ % 60) + 'min' + f' + {str(frequency)} min (frequency)'
+        time_ = f'{str(math.floor(time_ / 60))}h {str(time_ % 60)}min + {str(frequency)}min (frequency)'
     else:
-        time_ = str(time_) + 'min' + f' + {str(frequency)}min (frequency)'
+        time_ = f'{str(time_)}min + {str(frequency)}min (frequency)'
 
     context = {'distance': cost, 'time': time_, 'colors': colors}
     template = loader.get_template('main/path.html')
