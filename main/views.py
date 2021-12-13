@@ -85,7 +85,7 @@ def showPath(request, strPath: str, cost: str):
     frequency = 0
     advise = ''
     if hour not in OPENED:
-        advise = 'AVISO!!! El metro está cerrado, supondremos que sale mañana en el primer metro'
+        advise = 'WARNING!!! The subway is closed. The train frequency is for tomorrow at first trains'
         # Si esta cerrado se supone que se saldrá a primera hora del día siguiente
         hour = 6
         day += 1
