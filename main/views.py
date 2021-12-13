@@ -48,7 +48,6 @@ def homepage(request):
             to = form.cleaned_data.get('to')
 
             camino, coste = ejecucion_a_star(g, inverted_dict_total[origin], inverted_dict_total[to], dic_total)
-            time.sleep(3)
 
             str_path = ''
             for stop in camino:
@@ -84,7 +83,9 @@ def showPath(request, strPath: str, cost: str):
     OPENED = {x for x in range(6, 24)}  # Horas de apertura metro kiev
 
     frequency = 0
+    advise = ''
     if hour not in OPENED:
+        advise = 'AVISO!!! El metro está cerrado, supondremos que sale mañana en el primer metro'
         # Si esta cerrado se supone que se saldrá a primera hora del día siguiente
         hour = 6
         day += 1
@@ -101,6 +102,6 @@ def showPath(request, strPath: str, cost: str):
     else:
         time_ = f'{str(time_)}min (travel) + {str(frequency)}min (train frequency)'
 
-    context = {'distance': cost, 'time': time_, 'colors': colors}
+    context = {'distance': cost, 'time': time_, 'colors': colors, 'advise': advise}
     template = loader.get_template('main/path.html')
     return HttpResponse(template.render(context, request))
