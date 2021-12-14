@@ -108,19 +108,16 @@ def initializeGraph():
     """ Añadimos las aristas al grafo con sus correspondientes costes"""
     i = 0
     while i < len(lista_vertices_l1) - 1:
-        # Definir el coste que sea en una lista
         g.insert_undirected_edge(lista_vertices_l1[i], lista_vertices_l1[i + 1], costes_l1[i])
         i = i + 1
 
     i = 0
     while i < len(lista_vertices_l2) - 1:
-        # Definir el coste que sea en una lista
         g.insert_undirected_edge(lista_vertices_l2[i], lista_vertices_l2[i + 1], costes_l2[i])
         i = i + 1
 
     i = 0
     while i < len(lista_vertices_l3) - 1:
-        # Definir el coste que sea en una lista
         g.insert_undirected_edge(lista_vertices_l3[i], lista_vertices_l3[i + 1], costes_l3[i])
         i = i + 1
 
@@ -142,7 +139,7 @@ def initializeGraph():
     dic1_copia.update(dic3)
     dic_total = dic1_copia
 
-    # Creamos un diccionario clave:nombre parada, valor:vértice
+    # Creamos un diccionario clave:nombre parada, valor:vértice, que se usará en el html
     inverted_dict_total = dict(map(reversed, dic_total.items()))
 
 
@@ -180,6 +177,7 @@ def initializeGraph():
 
     return g, inverted_dict_total, dic_total
 
+
 def ejecucion_a_star(grafo: IUndirectedGraph, vorigen: Vertex,
                      vdestino: Vertex, dicc: Dict[Vertex, str]):
     """
@@ -199,9 +197,3 @@ def ejecucion_a_star(grafo: IUndirectedGraph, vorigen: Vertex,
 
     return list_path, vdestino.cost
 
-"""
-time1 = time.time()
-ejecucion_a_star(g, inverted_dict_total['Arsenalna'], inverted_dict_total['Hidropark'], dic_total)
-time2 = time.time()
-print(f'{round(time2 - time1, 2)} segundos ha tardado la búsqueda')
-"""
