@@ -19,9 +19,3 @@ def getDistance(loc1: (float, float), loc2: (float, float)) -> float:
 
     # devolvemos la distancia en metros
     return round(hs.haversine(loc1, loc2, unit=Unit.METERS))
-
-# test
-# loc1=(28.426846,77.088834)
-# loc2=(28.394231,77.050308)
-# print(getDistance(loc1, loc2))
-

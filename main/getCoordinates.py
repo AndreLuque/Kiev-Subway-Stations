@@ -14,10 +14,3 @@ def coordinates(location: str) -> (float, float):
     # retornamos la longitud y latitud
     return location.latitude, location.longitude
 
-# test
-# print(coordinates("metro Palas de Rey"))
-# print(coordinates("aldi Las tablas"))
-# print(coordinates("Daldent Las tablas"))
-# print(coordinates("parroquia las tablas"))
-# print(coordinates("Colegio las tablas valverde"))
-# print(coordinates("calle palas de rey 20"))
